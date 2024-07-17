@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+
+
+        body {
+            background-image: url('customer/assets/about01.jpg');
+            background-position: center;
+            background-size: cover;
+
+
+            /* background-color: #80808042; */
+            /* background-image: linear-gradient(#ff00fca3, #00e7ff4f, #ff004957); */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 768px) {
+            .box {
+                background-color: rgba(0, 0, 0, 0.55);
+                width: 439px;
+                margin: auto -12px;
+
+            }
+
+
+
+
+        }
+
+        @media (max-width: 1200px) {
+            .box {
+                background-color: rgba(0, 0, 0, 0.55);
+                margin-left: -350px;
+            }
+
+
+
+
+        }
+
+        .container {
+
+
+            background-color: rgba(0, 0, 0, 0.55);
+
+            border-color: #d2d2d2;
+            border-width: 5px;
+            color: white;
+            box-shadow: 0 1px 0 #cfcfcf;
+
+            margin: 180px 500px;
+        }
+
+
+
+        .box {
+            /* border: 2px solid green; */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .box h2 {
+            text-align: center;
+            font-size: 51px;
+            font-weight: 500;
+            font-family: sans-serif;
+        }
+
+        .box input {
+            height: 40px;
+            width: 400px;
+            box-shadow: 2px 2px 2px 2px #80808030;
+            font-size: 20px;
+            border: 1px solid #00000026;
+            border-radius: 6px;
+
+        }
+
+        .box input:hover {
+            transition: all 0.3s;
+            cursor: pointer;
+            /* border: 2px solid rgb(226, 87, 110); */
+            box-shadow: 5px 5px 5px 5px #dc8686;
+        }
+
+        .box button {
+            width: 200px;
+            height: 40px;
+            border-radius: 12px;
+            background-color: rgb(151, 217, 151);
+            font-size: 20px;
+            margin: 10px;
+            border: 1px solid rgb(151, 217, 151);
+        }
+
+        .box button:hover {
+            transition: all 0.3s;
+            background-color: rgba(16, 203, 97, 0.457);
+            cursor: pointer;
+        }
+
+        .box form {}
+
+        .form-group {
+            /* text-align: left; */
+            font-size: 20px;
+
+            margin: 10px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+
+
+            <h2>Login</h2>
+            <form action="submit_login.php" method="post">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required placeholder="Enter your Username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter Your Password">
+                </div>
+                <button type="submit">Login</button>
+                <button type="reset">Reset</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

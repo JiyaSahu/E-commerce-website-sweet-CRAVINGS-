@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            color: white;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            text-align: center;
+            /* align-items: center; */
+            margin: 20px 30px;
+            /* border: 2px solid red; */
+            padding: 20px 67px;
+
+        }
+
+        .content img {
+            /* border: 2px solid red; */
+            border-radius: 50%;
+            margin: auto;
+        }
+
+        .content h1 {
+            /* font-family: 'Oswald', sans-serif; */
+            /* font-family: 'Raleway', sans-serif; */
+            font-family: cursive;
+            font-weight: bolder;
+            font-size: 50px;
+
+        }
+
+        .glow {
+            font-size: 80px;
+            color: #fff;
+            text-align: center;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        @-webkit-keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+            }
+
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+            }
+        }
+
+        .content h4 {
+            /* font-family: 'Raleway', sans-serif; */
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+            font-size: 26px;
+        }
+
+        .glow-on-hover {
+            margin: auto;
+            width: 220px;
+            height: 50px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .glow-on-hover:active {
+            color: #000
+        }
+
+        .glow-on-hover:active:after {
+            background: transparent;
+        }
+
+        .glow-on-hover:hover:before {
+            opacity: 1;
+        }
+
+        .glow-on-hover:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        @keyframes glowing {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 400% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        
+
+        
+
+        .button {
+            position: relative;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: #f72359;
+            padding: 1em 2em;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+            border-radius: 100px;
+        }
+
+        .button span {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .glow-on-hover a{
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .button::before {
+            --size: 0;
+            content: '';
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            width: var(--size);
+            height: var(--size);
+            background: radial-gradient(circle closest-side, #4405f7, transparent);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            transition: width .2s ease, height .2s ease;
+        }
+
+        .button:hover::before {
+            --size: 400px;
+        }
+    </style>
+
+    <script>
+        document.querySelector('.button').onmousemove = function (e) {
+
+            var x = e.pageX - e.target.offsetLeft;
+            var y = e.pageY - e.target.offsetTop;
+
+            e.target.style.setProperty('--x', x + 'px');
+            e.target.style.setProperty('--y', y + 'px');
+        };
+    </script>
+</head>
+
+<body>
+    <div class="content">
+
+        <!--<img src="assets/yes.png" alt="" width="150px">-->
+        <img src="assets/yes.png" alt="" width="150px"/>
+
+        <h1 class="glow">
+            Successfully Order Submitted
+        </h1>
+
+        <h4>
+            Welcome back to Sweet Craving, your ultimate online bakery shop! We are thrilled to see you again and thank
+            you for shopping in. Your continued support means the world to us, and we're excited to satisfy your sweet
+            tooth with our freshly baked goodies. Whether you're craving our signature cupcakes, delectable cookies, or
+            artisanal breads, we're here to make your experience delightful. Enjoy browsing through our latest offerings
+            and exclusive deals. If you need any assistance, our team is just a click away. Happy shopping, and thank
+            you for being a cherished part of the Sweet Craving family!
+        </h4>
+
+        <button class="glow-on-hover" type="button">
+            <a href="index.html">Click here for explore our online Bakery</a>
+        </button>
+    </div>
+</body>
+
+</html>

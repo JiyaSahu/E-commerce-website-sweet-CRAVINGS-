@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <style>
+        /********************* Shopping Demo-4 **********************/
+
+        /* NAV START  */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+        }
+
+        section nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+            right: 0;
+            left: 0;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        section nav .logo img {
+            width: 100px;
+            cursor: pointer;
+            margin: 7px 0;
+        }
+
+        section nav ul {
+            list-style: none;
+        }
+
+        section nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        section nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            font-size: 26px;
+            transition: 0.1s;
+        }
+
+        section nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: #fac031;
+            display: block;
+            transition: 0.2s linear;
+        }
+
+        section nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        section nav ul li a:hover {
+            color: #fac031;
+        }
+
+        section nav .icon i {
+            font-size: 18px;
+            color: #000;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        section nav .icon i:hover {
+            color: #fac031;
+        }
+
+        /* NAV END  */
+
+
+        @media (min-width: 1200px) {
+            .container {
+                position: relative;
+                top: 45px;
+                max-width: 1170px;
+            }
+        }
+
+        .product-grid4,
+        .product-grid4 .product-image4 {
+            position: relative
+        }
+
+        .product-grid4 {
+            font-family: Poppins, sans-serif;
+            text-align: center;
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 1;
+            transition: all .3s ease 0s
+        }
+
+        .product-grid4:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+        }
+
+        .product-grid4 .product-image4 a {
+            display: block
+        }
+
+        .product-grid4 .product-image4 img {
+            width: 100%;
+            height: auto
+        }
+
+        .product-grid4 .pic-1 {
+            opacity: 1;
+            transition: all .5s ease-out 0s
+        }
+
+        .product-grid4:hover .pic-1 {
+            opacity: 0
+        }
+
+        .product-grid4 .pic-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: all .5s ease-out 0s
+        }
+
+        .product-grid4:hover .pic-2 {
+            opacity: 1
+        }
+
+        .product-grid4 .social {
+            width: 180px;
+            padding: 0;
+            margin: 0 auto;
+            list-style: none;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all .3s ease 0s
+        }
+
+        .product-grid4 .social li {
+            display: inline-block;
+            opacity: 0;
+            transition: all .7s
+        }
+
+        .product-grid4 .social li:nth-child(1) {
+            transition-delay: .15s
+        }
+
+        .product-grid4 .social li:nth-child(2) {
+            transition-delay: .3s
+        }
+
+        .product-grid4 .social li:nth-child(3) {
+            transition-delay: .45s
+        }
+
+        .product-grid4:hover .social li {
+            opacity: 1
+        }
+
+        .product-grid4 .social li a {
+            color: #222;
+            background: #fff;
+            font-size: 17px;
+            line-height: 36px;
+            width: 40px;
+            height: 36px;
+            border-radius: 2px;
+            margin: 0 5px;
+            display: block;
+            transition: all .3s ease 0s
+        }
+
+        .product-grid4 .social li a:hover {
+            color: #fff;
+            background: #16a085
+        }
+
+        .product-grid4 .social li a:after,
+        .product-grid4 .social li a:before {
+            content: attr(data-tip);
+            color: #fff;
+            background-color: #000;
+            font-size: 12px;
+            line-height: 20px;
+            border-radius: 3px;
+            padding: 0 5px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(-50%);
+            position: absolute;
+            left: 50%;
+            top: -30px
+        }
+
+        .product-grid4 .social li a:after {
+            content: '';
+            height: 15px;
+            width: 15px;
+            border-radius: 0;
+            transform: translateX(-50%) rotate(45deg);
+            top: -22px;
+            z-index: -1
+        }
+
+        .product-grid4 .social li a:hover:after,
+        .product-grid4 .social li a:hover:before {
+            opacity: 1
+        }
+
+        .product-grid4 .product-discount-label,
+        .product-grid4 .product-new-label {
+            color: #fff;
+            background-color: #16a085;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 45px;
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            transition: all .3s
+        }
+
+        .product-grid4 .product-discount-label {
+            left: auto;
+            right: 10px;
+            background-color: #d7292a
+        }
+
+        .product-grid4:hover .product-new-label {
+            opacity: 0
+        }
+
+        .product-grid4 .product-content {
+            padding: 25px
+        }
+
+        .product-grid4 .title {
+            font-size: 15px;
+            font-weight: 400;
+            text-transform: capitalize;
+            margin: 0 0 7px;
+            transition: all .3s ease 0s
+        }
+
+        .product-grid4 .title a {
+            color: #222
+        }
+
+        .product-grid4 .title a:hover {
+            color: #16a085
+        }
+
+        .product-grid4 .price {
+            color: #16a085;
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0 2px 15px 0;
+            display: block
+        }
+
+        .product-grid4 .price span {
+            color: #909090;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-decoration: line-through;
+            text-align: left;
+            vertical-align: middle;
+            display: inline-block
+        }
+
+        .product-grid4 .add-to-cart {
+            border: 1px solid #e5e5e5;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #888;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: all .3s
+        }
+
+        .product-grid4:hover .add-to-cart {
+            border: 1px solid transparent;
+            background: #16a085;
+            color: #fff
+        }
+
+        .product-grid4 .add-to-cart:hover {
+            background-color: #505050;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .5)
+        }
+
+        @media only screen and (max-width:990px) {
+            .product-grid4 {
+                margin-bottom: 30px
+            }
+        }
+
+        /*Footer*/
+
+        footer {
+            width: 100%;
+            padding: 30px 0 0 20px;
+            background: #eeeeee;
+            /* border: 2px solid red; */
+            margin-top: 100px;
+        }
+
+
+        footer .footer_main {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+
+        footer .footer_main .footer_tag {
+            text-align: center;
+        }
+
+        footer .footer_main .footer_tag h2 {
+            color: #000;
+            margin-bottom: 25px;
+            font-size: 30px;
+        }
+
+        footer .footer_main .footer_tag p {
+            margin: 10px 0;
+        }
+
+        footer .footer_main .footer_tag i {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        footer .footer_main .footer_tag i:hover {
+            color: #fac031;
+        }
+
+        footer .end {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        footer .end span {
+            color: #fac031;
+            margin-left: 10px;
+        }
+
+        .footer_tag a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .footer_tag a:hover {
+            transition: all 0.3s;
+            color: #fac031;
+            text-decoration: underline;
+            font-weight: bolder;
+        }
+
+        ::-webkit-scrollbar {
+            width: 13px;
+        }
+
+        ::-webkit-scrollbar-track {
+            border-radius: 15px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #fac031;
+            border-radius: 15px;
+            color: rgba(231, 76, 76, 0.813);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV SECTION START  -->
+
+    <section id="Home">
+        <nav>
+            <div class="logo">
+                <img src="assets/logo1.png">
+            </div>
+
+            <ul>
+                <li><a href="index.html" target="_self">Home</a></li>
+                <li><a href="about.html" target="_self">About</a></li>
+
+                <li><a href="gallery.html" target="_self">Gallary</a></li>
+
+                <li><a href="order.html" target="_self">Order</a></li>
+                <li><a href="login.html" target="_self">Login</a></li>
+                <li><a href="customer/index.html" target="_self">New Register</a></li>
+                <li><a href="admin/admin-login.html" target="_self">Admin</a></li>
+
+
+            </ul>
+
+            <div class="icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+        </nav>
+        <!-- NAV SECTION END  -->
+        <div class="container">
+            <!-- <h3 class="h3">shopping Demo-4 </h3> -->
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order1.jpg">
+                                <img class="pic-2" src="assets/order1.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Chocolate Vanilla Half & Half Cake</a></h3>
+                            <div class="price">
+                                ₹549
+                                <span>₹600</span>
+                            </div>
+                            <a class="add-to-cart" href="buy.html">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order2.jpg">
+                                <img class="pic-2" src="assets/order2.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-discount-label">-12%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Choco Bliss Pastry</a></h3>
+                            <div class="price">
+                                ₹110.60
+                                <span>₹120.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order3.jpg">
+                                <img class="pic-2" src="assets/order3.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Raspberry Dream Puff</a></h3>
+                            <div class="price">
+                                ₹160
+                                <span>₹180.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order4.jpg">
+                                <img class="pic-2" src="assets/order4.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Coconut Cloud Puffs</a></h3>
+                            <div class="price">
+                                ₹60.40
+                                <span>₹80</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- <h3 class="h3">shopping Demo-4 </h3> -->
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order5.jpg">
+                                <img class="pic-2" src="assets/order5.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Blueberry Burst Danishes</a></h3>
+                            <div class="price">
+                                ₹30
+                                <span>$16.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order6.jpg">
+                                <img class="pic-2" src="assets/order6.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-discount-label">-12%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Strawberry Cream Turnover</a></h3>
+                            <div class="price">
+                                ₹220
+                                <span>₹280</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order7.jpg">
+                                <img class="pic-2" src="assets/order7.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Maple Glazed Danishs</a></h3>
+                            <div class="price">
+                                ₹120
+                                <span>₹160</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order8.jpg">
+                                <img class="pic-2" src="assets/order8.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Chocolate Hazelnut Pillow</a></h3>
+                            <div class="price">
+                                ₹140
+                                <span>₹180</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- <h3 class="h3">shopping Demo-4 </h3> -->
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order9.jpg">
+                                <img class="pic-2" src="assets/order9.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">White Chocolate Raspberry Twist</a></h3>
+                            <div class="price">
+                                ₹120
+                                <span>₹140</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order10.jpg">
+                                <img class="pic-2" src="assets/order10.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-discount-label">-12%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Chocolate Avalanche Cupcake</a></h3>
+                            <div class="price">
+                                ₹180
+                                <span>₹200</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order11.jpg">
+                                <img class="pic-2" src="assets/order11.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Strawberry Fields Cupcake</a></h3>
+                            <div class="price">
+                                ₹120
+                                <span>₹140</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order12.jpg">
+                                <img class="pic-2" src="assets/order12.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Choco Bliss Pastry</a></h3>
+                            <div class="price">
+                                ₹200
+                                <span>₹220</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- <h3 class="h3">shopping Demo-4 </h3> -->
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order13.jpg">
+                                <img class="pic-2" src="assets/order13.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Espresso Elegance Cupcake</a></h3>
+                            <div class="price">
+                                ₹100
+                                <span>₹120</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order14.jpg">
+                                <img class="pic-2" src="assets/order14.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-discount-label">-12%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Vanilla Bean Dream Cupcake</a></h3>
+                            <div class="price">
+                                ₹60
+                                <span>₹70</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order15.jpg">
+                                <img class="pic-2" src="assets/order15.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Caramel Swirl Cupcake</a></h3>
+                            <div class="price">
+                                ₹110
+                                <span>₹120</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order16.jpg">
+                                <img class="pic-2" src="assets/order16.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Red Velvet Royale Cupcake</a></h3>
+                            <div class="price">
+                                ₹180
+                                <span>₹200</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h3 class="h3">shopping Demo-4 </h3>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order17.jpg">
+                                <img class="pic-2" src="assets/order17.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Lemon Lush Cupcake</a></h3>
+                            <div class="price">
+                                ₹30
+                                <span>₹35</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order18.jpg">
+                                <img class="pic-2" src="assets/order18.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-discount-label">-12%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Apple Cinnamon Crisp</a></h3>
+                            <div class="price">
+                                ₹60
+                                <span>₹70</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order19.jpg">
+                                <img class="pic-2" src="assets/order19.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Pecan Praline Pastry</a></h3>
+                            <div class="price">
+                                ₹80
+                                <span>₹90</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid4">
+                        <div class="product-image4">
+                            <a href="#">
+                                <img class="pic-1" src="assets/order20.jpg">
+                                <img class="pic-2" src="assets/order20.jpg">
+                            </a>
+                            <ul class="social">
+                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                            <span class="product-discount-label">-10%</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Coconut Cloud Puffs</a></h3>
+                            <div class="price">
+                                ₹240
+                                <span>₹280</span>
+                            </div>
+                            <a class="add-to-cart" href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- FOOTER START  -->
+
+        <footer>
+            <div class="footer_main">
+
+                <div class="footer_tag">
+                    <h2>Location</h2>
+                    <p><a href="">Sasaram</a></p>
+                    <p><a href="">Dehri</a></p>
+                    <p><a href="">Jamuhar</a></p>
+                    <p><a href="">Station</a></p>
+                    <p><a href="">Karwandiya</a></p>
+                </div>
+
+                <div class="footer_tag">
+                    <h2>Quick Link</h2>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="">About</a></p>
+                    <p><a href="">Gallary</a></p>
+                    <p><a href="">Order</a></p>
+                    <p><a href="login1.html">Login</a></p>
+                    <p><a href="register1.html">New Registation</a></p>
+                    <p><a href="">Admin Login</a></p>
+                </div>
+
+                <div class="footer_tag">
+                    <h2>Contact</h2>
+                    <p>+94 12 3456 789</p>
+                    <p>+94 25 5568456</p>
+                    <p>sweetCravings@gmail.com</p>
+                    <p>bakeryshop123@gmail.com</p>
+                </div>
+
+                <div class="footer_tag">
+                    <h2>Our Service</h2>
+                    <p>Fast Delivery</p>
+                    <p>Easy Payments</p>
+                    <p>24 x 7 Service</p>
+                </div>
+
+                <div class="footer_tag">
+                    <h2>Follows</h2>
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div>
+
+            </div>
+
+            <p class="end">Design by<span><i class="fa-solid fa-face-grin"></i> SWEET CRAVINGS</span></p>
+
+        </footer>
+
+
+        <!-- FOOTER END  -->
+</body>
+
+</html>

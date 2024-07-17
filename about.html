@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT PAGE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:500" rel="stylesheet">
+    <script>!function (e) { "undefined" == typeof module ? this.charming = e : module.exports = e }(function (e, n) { "use strict"; n = n || {}; var t = n.tagName || "span", o = null != n.classPrefix ? n.classPrefix : "char", r = 1, a = function (e) { for (var n = e.parentNode, a = e.nodeValue, c = a.length, l = -1; ++l < c;) { var d = document.createElement(t); o && (d.className = o + r, r++), d.appendChild(document.createTextNode(a[l])), n.insertBefore(d, e) } n.removeChild(e) }; return function c(e) { for (var n = [].slice.call(e.childNodes), t = n.length, o = -1; ++o < t;)c(n[o]); e.nodeType === Node.TEXT_NODE && a(e) }(e), e });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <section>
+
+        <style>
+            /* NAV SECTION START  */
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                /* background: linear-gradient(#c8ffd4, #ff8def); */
+            }
+
+            section {
+                width: 100%;
+                height: 30vh;
+            }
+
+            section nav {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                position: relative;
+                right: 0;
+                left: 0;
+                background: #ffffff3b;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+            }
+
+            section nav .logo img {
+                width: 100px;
+                cursor: pointer;
+                margin: 7px 0;
+            }
+
+            section nav ul {
+                list-style: none;
+            }
+
+            section nav ul li {
+                display: inline-block;
+                margin: 0 15px;
+            }
+
+            section nav ul li a {
+                text-decoration: none;
+                color: #000;
+                font-weight: 500;
+                font-size: 26px;
+                transition: 0.1s;
+            }
+
+            section nav ul li a::after {
+                content: '';
+                width: 0;
+                height: 2px;
+                background: #fac031;
+                display: block;
+                transition: 0.2s linear;
+            }
+
+            section nav ul li a:hover::after {
+                width: 100%;
+            }
+
+            section nav ul li a:hover {
+                color: #fac031;
+            }
+
+            section nav .icon i {
+                font-size: 18px;
+                color: #000;
+                margin: 0 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            section nav .icon i:hover {
+                color: #fac031;
+            }
+
+            /* NAV SECTION END  */
+
+
+            /* SLIDER START  */
+
+            section {
+                width: 100%;
+                height: 100vh;
+            }
+
+            .swiper-container {
+                width: 100%;
+                height: 100%;
+            }
+
+            .slid {
+
+                top: -740px;
+            }
+
+            .slide {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+                overflow: hidden;
+            }
+
+            .slide-image {
+                position: absolute;
+                top: -200px;
+                left: -200px;
+                width: calc(100% + 400px);
+                height: calc(100% + 400px);
+                background-position: 50% 50%;
+                background-size: cover;
+            }
+
+            .slide-title {
+                font-size: 4rem;
+                line-height: 1;
+                max-width: 50%;
+                white-space: normal;
+                word-break: break-word;
+                color: #FFF;
+                z-index: 100;
+                font-family: 'Oswald', sans-serif;
+                text-transform: uppercase;
+                font-weight: normal;
+            }
+
+            @media (min-width: 45em) {
+                .slide-title {
+                    font-size: 7vw;
+                    max-width: none;
+                }
+            }
+
+            .slide-title span {
+                white-space: pre;
+                display: inline-block;
+                opacity: 0;
+            }
+
+            .slideshow {
+                position: relative;
+            }
+
+            .slideshow-pagination {
+                position: absolute;
+                bottom: 5rem;
+                left: 0;
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                transition: .3s opacity;
+                z-index: 10;
+            }
+
+            .slideshow-pagination-item {
+                display: flex;
+                align-items: center;
+            }
+
+            .slideshow-pagination-item .pagination-number {
+                opacity: 0.5;
+            }
+
+            .slideshow-pagination-item:hover,
+            .slideshow-pagination-item:focus {
+                cursor: pointer;
+            }
+
+            .slideshow-pagination-item:last-of-type .pagination-separator {
+                width: 0;
+            }
+
+            .slideshow-pagination-item.active .pagination-number {
+                opacity: 1;
+            }
+
+            .slideshow-pagination-item.active .pagination-separator {
+                width: 10vw;
+            }
+
+            .slideshow-navigation-button {
+                position: absolute;
+                top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 5rem;
+                z-index: 1000;
+                transition: all .3s ease;
+                color: #FFF;
+            }
+
+            .slideshow-navigation-button:hover,
+            .slideshow-navigation-button:focus {
+                cursor: pointer;
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            .slideshow-navigation-button.prev {
+                left: 0;
+            }
+
+            .slideshow-navigation-button.next {
+                right: 0;
+            }
+
+            .pagination-number {
+                font-size: 1.8rem;
+                color: #FFF;
+                font-family: 'Oswald', sans-serif;
+                padding: 0 0.5rem;
+            }
+
+            .pagination-separator {
+                display: none;
+                position: relative;
+                width: 40px;
+                height: 2px;
+                background: rgba(255, 255, 255, 0.25);
+                transition: all .3s ease;
+            }
+
+            @media (min-width: 45em) {
+                .pagination-separator {
+                    display: block;
+                }
+            }
+
+            .pagination-separator-loader {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #FFFFFF;
+                transform-origin: 0 0;
+            }
+
+
+            /* SLIDER END  */
+
+            /* HOME SECTION START  */
+
+            .create_row {
+                position: absolute;
+                top: 700px;
+                right: 0;
+                left: 0;
+            }
+
+            .container_about_us {
+                /* border: 2px solid red; */
+                /* border: 2px solid red;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: linear-gradient(#f7f7f7, #ff99f1ab); */
+
+                /* border: 2px solid red; */
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                position: relative;
+                top: 180px;
+                margin-bottom: 60px;
+                padding: 20px;
+                gap: 120px;
+            }
+
+            .about_us_content_box {
+
+                /* display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: justify;
+            width: 880px;
+            gap: 25px; */
+
+                /* border: 3px solid blue; */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 900px;
+                gap: 30px;
+
+            }
+
+            .about_us_content_box h1 {
+                font-size: 50px;
+            }
+
+            .about_us_content_box span {
+                font-family: mv boli;
+                color: #fac031;
+            }
+
+            .about_us_content_box p {
+                font-size: 20px;
+            }
+
+            .about_us_image_box {
+                /* border: 3px solid green; */
+
+            }
+
+            .about_us_image_box img {
+                /* border: 2px solid yellow; */
+                width: 600px;
+                height: 400px;
+                object-fit: cover;
+            }
+
+            .about_us_image_box img:hover {
+                transition: all ease-in-out 0.3s;
+                /* height: 400px; */
+                /* width: 650px; */
+                transform: scale(1.1);
+                filter: grayscale(20);
+
+            }
+
+            /* HOME SECTION end  */
+
+
+            /*Footer*/
+
+            footer {
+                width: 100%;
+                padding: 30px 0 0 20px;
+                background: #eeeeee;
+                margin-top: 2000px;
+            }
+
+            footer .footer_main {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            }
+
+            footer .footer_main .footer_tag {
+                text-align: center;
+            }
+
+            footer .footer_main .footer_tag h2 {
+                color: #000;
+                margin-bottom: 25px;
+                font-size: 30px;
+            }
+
+            footer .footer_main .footer_tag p {
+                margin: 10px 0;
+            }
+
+            footer .footer_main .footer_tag i {
+                margin: 0 5px;
+                cursor: pointer;
+            }
+
+            footer .footer_main .footer_tag i:hover {
+                color: #fac031;
+            }
+
+            footer .end {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 15px;
+            }
+
+            footer .end span {
+                color: #fac031;
+                margin-left: 10px;
+            }
+
+            .footer_tag a {
+                color: black;
+                text-decoration: none;
+            }
+
+            .footer_tag a:hover {
+                transition: all 0.3s;
+                color: #fac031;
+                text-decoration: underline;
+                font-weight: bolder;
+            }
+
+            ::-webkit-scrollbar {
+                width: 13px;
+            }
+
+            ::-webkit-scrollbar-track {
+                border-radius: 15px;
+                box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #fac031;
+                border-radius: 15px;
+            }
+        </style>
+</head>
+
+<body>
+    <!-- NAV SECTION START  -->
+    <section id="Home">
+        <nav>
+            <div class="logo">
+                <img src="assets/logo1.png">
+            </div>
+
+            <ul>
+                <li><a href="index.html" target="_self">Home</a></li>
+                <li><a href="about.html" target="_self">About</a></li>
+
+                <li><a href="gallery.html" target="_self">Gallary</a></li>
+
+                <li><a href="order.html" target="_self">Order</a></li>
+                <li><a href="login.html" target="_self">Login</a></li>
+                <li><a href="customer/index.html" target="_self">New Register</a></li>
+                <li><a href="admin/admin-login.html" target="_self">Admin</a></li>
+
+            </ul>
+
+            <div class="icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+        </nav>
+
+    </section>
+    <!-- NAV SECTION END   -->
+
+    <!-- SLIDER START  -->
+
+    <section>
+
+        <div class="swiper-container slideshow slid">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide">
+                    <div class="slide-image"
+                        style="background-image: url(assets/about01.jpg)">
+                        <!--<img src="images_bakery/about02.jpg" alt=""/>-->
+                    </div>
+                    <span class="slide-title">Baking Joy Daily</span>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="slide-image"
+                        style="background-image: url(assets/about02.jpg)">
+                        
+                    </div>
+                    <span class="slide-title">Crafting Delicious <br>Moments</span>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="slide-image"
+                        style="background-image: url(assets/about03.jpg)">
+                        
+                    </div>
+                    <span class="slide-title">Passionately Baking <br> Memories</span>
+                </div>
+
+                <!--         <div class="swiper-slide slide">
+                <div class="slide-imageswiper-lazy" data-background="https://images.unsplash.com/photo-1538083024336-555cf8943ddc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=66b476a51b19889e13182c0e4827af18&auto=format&fit=crop&w=1950&q=80">
+                </div>
+                </div>
+                <span class="slide-title">Exotic places</span>
+              </div>
+            
+              <div class="swiper-slide slide">
+                <div class="slide-image swiper-lazy" data-background="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e07d2457879a4e15577ec75a31023e47&auto=format&fit=crop&w=2134&q=80">
+                </div>
+                <span class="slide-title">Meet ocean</span>
+              </div>
+            
+              <div class="swiper-slide slide">
+                <div class="slide-image swiper-lazy" data-background="https://images.unsplash.com/photo-1482059470115-0aadd6bf6834?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=267bba9a4e280ec64388fe8fb01e9d1b&auto=format&fit=crop&w=1950&q=80">
+                </div>
+                <span class="slide-title">Around the world</span>
+              </div> -->
+
+            </div>
+
+            <div class="slideshow-pagination"></div>
+
+            <div class="slideshow-navigation">
+                <div class="slideshow-navigation-button prev"><span class="fas fa-chevron-left"></span></div>
+                <div class="slideshow-navigation-button next"><span class="fas fa-chevron-right"></span></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SLIDER END  -->
+
+    <!-- WELCOME SECTION START  -->
+
+    <div class="create_row">
+        <div class="container_about_us">
+            <div class="about_us_content_box">
+                <h1>Welcome to <span>Sweet Cravings Bakery!</span></h1>
+                <p>
+                    At Sweet Delights Bakery, we believe in the power of delectable treats to bring joy to every
+                    occasion.
+                    Our online bakery shop is your one-stop destination for all things sweet and delightful. From
+                    indulgent
+                    cakes to artisanal pastries, we craft each item with passion, care, and the finest ingredients.
+                </p>
+            </div>
+            <div class="about_us_image_box">
+                
+                <img src="assets/about4.gif" alt=""/>
+            </div>
+        </div>
+
+        <div class="container_about_us">
+
+            <div class="about_us_image_box">
+                <!--<img src="assets/delicious-birthday-cake-with-candles.jpg" alt="Error">-->
+                <img src="assets/about5.png" alt=""/>
+                
+            </div>
+
+            <div class="about_us_content_box">
+                <h1>Our <span>Story</span></h1>
+                <p>
+                    Founded by a team of baking enthusiasts with a shared love for creating mouthwatering confections,
+                    Sweet
+                    Delights Bakery began as a humble kitchen venture. What started as a passion project soon blossomed
+                    into
+                    a beloved online bakery, serving customers with our signature treats.
+
+
+                </p>
+            </div>
+        </div>
+
+        <div class="container_about_us">
+
+            <div class="about_us_content_box">
+                <h1>Our <span>Philosophy</span></h1>
+                <p>
+                    At Sweet Delights Bakery, we blend traditional baking techniques with innovative flavors to deliver
+                    a
+                    unique culinary experience. Every recipe is crafted with precision, ensuring that each bite is a
+                    moment
+                    of pure delight. We believe in the importance of quality, which is why we source only the freshest
+                    ingredients for our creations.
+
+                </p>
+            </div>
+
+            <div class="about_us_image_box">
+                <!--<img src="assets/delicious-birthday-cake-with-candles.jpg" alt="Error">-->
+                <img src="assets/about6.jpg" alt=""/>
+            </div>
+            
+        </div>
+
+        <div class="container_about_us">
+
+
+            <div class="about_us_image_box">
+                <img src="assets/about7.jpg" alt="Error">
+            </div>
+
+            <div class="about_us_content_box">
+                <h1>Our <span>Commitment </span>to You</h1>
+                <p>
+                    At Sweet Delights Bakery, customer satisfaction is our top priority. Whether you're ordering for
+                    yourself or sending a gift to a loved one, we strive to exceed your expectations with every
+                    purchase.
+                    With convenient online ordering and prompt delivery, we make it easy to indulge in life's sweet
+                    moments.
+
+
+
+                </p>
+            </div>
+
+
+        </div>
+
+
+        <div class="container_about_us">
+
+
+
+
+            <div class="about_us_content_box">
+                <h1>Get in<span>Touch</span></h1>
+                <p>
+                    Have a question or special request? Our friendly team is here to help! Contact us today to learn
+                    more
+                    about our products and services. Thank you for choosing Sweet Delights Bakery for all
+                    your sweet cravings!
+                </p>
+            </div>
+
+            <div class="about_us_image_box">
+                <img src="assets/about8.jpg" alt="Error">
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER START  -->
+
+    <footer>
+        <div class="footer_main">
+
+            <div class="footer_tag">
+                <h2>Location</h2>
+                <p><a href="">Sasaram</a></p>
+                <p><a href="">Dehri</a></p>
+                <p><a href="">Jamuhar</a></p>
+                <p><a href="">Station</a></p>
+                <p><a href="">Karwandiya</a></p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Quick Link</h2>
+                <p><a href="">Home</a></p>
+                <p><a href="">About</a></p>
+
+                <p><a href="">Gallary</a></p>
+                <p><a href="">Order</a></p>
+                <p><a href="login_register.html">Login/Register</a></p>
+                <p><a href="admin_login.html">Admin</a></p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Contact</h2>
+                <p>+94 12 3456 789</p>
+                <p>+94 25 5568456</p>
+                <p>sweetCravings@gmail.com</p>
+                <p>bakeryshop123@gmail.com</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Our Service</h2>
+                <p>Fast Delivery</p>
+                <p>Easy Payments</p>
+                <p>24 x 7 Service</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Follows</h2>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+
+        </div>
+
+        <p class="end">Design by<span><i class="fa-solid fa-face-grin"></i> SWEET CRAVINGS</span></p>
+
+    </footer>
+
+
+    <!-- FOOTER END  -->
+
+    <script>
+        // The Slideshow class.
+        class Slideshow {
+            constructor(el) {
+
+                this.DOM = { el: el };
+
+                this.config = {
+                    slideshow: {
+                        delay: 3000,
+                        pagination: {
+                            duration: 3,
+                        }
+                    }
+                };
+
+                // Set the slideshow
+                this.init();
+
+            }
+            init() {
+
+                var self = this;
+
+                // Charmed title
+                this.DOM.slideTitle = this.DOM.el.querySelectorAll('.slide-title');
+                this.DOM.slideTitle.forEach((slideTitle) => {
+                    charming(slideTitle);
+                });
+
+                // Set the slider
+                this.slideshow = new Swiper(this.DOM.el, {
+
+                    loop: true,
+                    autoplay: {
+                        delay: this.config.slideshow.delay,
+                        disableOnInteraction: false,
+                    },
+                    speed: 500,
+                    preloadImages: true,
+                    updateOnImagesReady: true,
+
+                    // lazy: true,
+                    // preloadImages: false,
+
+                    pagination: {
+                        el: '.slideshow-pagination',
+                        clickable: true,
+                        bulletClass: 'slideshow-pagination-item',
+                        bulletActiveClass: 'active',
+                        clickableClass: 'slideshow-pagination-clickable',
+                        modifierClass: 'slideshow-pagination-',
+                        renderBullet: function (index, className) {
+
+                            var slideIndex = index,
+                                number = (index <= 8) ? '0' + (slideIndex + 1) : (slideIndex + 1);
+
+                            var paginationItem = '<span class="slideshow-pagination-item">';
+                            paginationItem += '<span class="pagination-number">' + number + '</span>';
+                            paginationItem = (index <= 8) ? paginationItem + '<span class="pagination-separator"><span class="pagination-separator-loader"></span></span>' : paginationItem;
+                            paginationItem += '</span>';
+
+                            return paginationItem;
+
+                        },
+                    },
+
+                    // Navigation arrows
+                    navigation: {
+                        nextEl: '.slideshow-navigation-button.next',
+                        prevEl: '.slideshow-navigation-button.prev',
+                    },
+
+                    // And if we need scrollbar
+                    scrollbar: {
+                        el: '.swiper-scrollbar',
+                    },
+
+                    on: {
+                        init: function () {
+                            self.animate('next');
+                        },
+                    }
+
+                });
+
+                // Init/Bind events.
+                this.initEvents();
+
+            }
+            initEvents() {
+
+                this.slideshow.on('paginationUpdate', (swiper, paginationEl) => this.animatePagination(swiper, paginationEl));
+                //this.slideshow.on('paginationRender', (swiper, paginationEl) => this.animatePagination());
+
+                this.slideshow.on('slideNextTransitionStart', () => this.animate('next'));
+
+                this.slideshow.on('slidePrevTransitionStart', () => this.animate('prev'));
+
+            }
+            animate(direction = 'next') {
+
+                // Get the active slide
+                this.DOM.activeSlide = this.DOM.el.querySelector('.swiper-slide-active'),
+                    this.DOM.activeSlideImg = this.DOM.activeSlide.querySelector('.slide-image'),
+                    this.DOM.activeSlideTitle = this.DOM.activeSlide.querySelector('.slide-title'),
+                    this.DOM.activeSlideTitleLetters = this.DOM.activeSlideTitle.querySelectorAll('span');
+
+                // Reverse if prev  
+                this.DOM.activeSlideTitleLetters = direction === "next" ? this.DOM.activeSlideTitleLetters : [].slice.call(this.DOM.activeSlideTitleLetters).reverse();
+
+                // Get old slide
+                this.DOM.oldSlide = direction === "next" ? this.DOM.el.querySelector('.swiper-slide-prev') : this.DOM.el.querySelector('.swiper-slide-next');
+                if (this.DOM.oldSlide) {
+                    // Get parts
+                    this.DOM.oldSlideTitle = this.DOM.oldSlide.querySelector('.slide-title'),
+                        this.DOM.oldSlideTitleLetters = this.DOM.oldSlideTitle.querySelectorAll('span');
+                    // Animate
+                    this.DOM.oldSlideTitleLetters.forEach((letter, pos) => {
+                        TweenMax.to(letter, .3, {
+                            ease: Quart.easeIn,
+                            delay: (this.DOM.oldSlideTitleLetters.length - pos - 1) * .04,
+                            y: '50%',
+                            opacity: 0
+                        });
+                    });
+                }
+
+                // Animate title
+                this.DOM.activeSlideTitleLetters.forEach((letter, pos) => {
+                    TweenMax.to(letter, .6, {
+                        ease: Back.easeOut,
+                        delay: pos * .05,
+                        startAt: { y: '50%', opacity: 0 },
+                        y: '0%',
+                        opacity: 1
+                    });
+                });
+
+                // Animate background
+                TweenMax.to(this.DOM.activeSlideImg, 1.5, {
+                    ease: Expo.easeOut,
+                    startAt: { x: direction === 'next' ? 200 : -200 },
+                    x: 0,
+                });
+
+                //this.animatePagination()
+
+            }
+            animatePagination(swiper, paginationEl) {
+
+                // Animate pagination
+                this.DOM.paginationItemsLoader = paginationEl.querySelectorAll('.pagination-separator-loader');
+                this.DOM.activePaginationItem = paginationEl.querySelector('.slideshow-pagination-item.active');
+                this.DOM.activePaginationItemLoader = this.DOM.activePaginationItem.querySelector('.pagination-separator-loader');
+
+                console.log(swiper.pagination);
+                // console.log(swiper.activeIndex);
+
+                // Reset and animate
+                TweenMax.set(this.DOM.paginationItemsLoader, { scaleX: 0 });
+                TweenMax.to(this.DOM.activePaginationItemLoader, this.config.slideshow.pagination.duration, {
+                    startAt: { scaleX: 0 },
+                    scaleX: 1,
+                });
+
+
+            }
+
+        }
+
+        const slideshow = new Slideshow(document.querySelector('.slideshow'));
+
+    </script>
+</body>
+
+</html>

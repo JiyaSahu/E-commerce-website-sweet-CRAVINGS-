@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Cake</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #80808042;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 60px;
+            border-radius: 10px;
+            padding: 40px;
+            background-color: whitesmoke;
+            gap: 100px;
+            box-shadow: 5px 5px 10px 5px #808080;
+        }
+
+        .container img {
+            max-width: 600px;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .img-content {
+            box-shadow: 2px 2px 2px 2px #80808030;
+            background-color: rgba(128, 128, 128, 0.219);
+            padding: 10px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .content-2 h3 {
+            font-size: 30px;
+        }
+
+        .top-content-1 h1 {
+            text-align: left;
+        }
+
+        .weight {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .weight ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .weight ul button {
+            list-style: none;
+            border: 1px solid #0000004f;
+            width: 75px;
+            height: 40px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-weight.selected {
+            border-color: red;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .container img {
+                width: 100%;
+            }
+
+            .content,
+            .img-content {
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .container img {
+                width: 100%;
+            }
+
+            .content,
+            .img-content {
+                max-width: 500px;
+            }
+        }
+
+        .cake-msg {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .cake-msg input {
+            height: 40px;
+            width: 400px;
+            box-shadow: 2px 2px 2px 2px #80808030;
+            font-size: 20px;
+            border: 1px solid #00000026;
+            border-radius: 6px;
+        }
+
+        .location {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .location input {
+            height: 40px;
+            width: 400px;
+            box-shadow: 2px 2px 2px 2px #80808030;
+            font-size: 20px;
+            border: 1px solid #00000026;
+            border-radius: 6px;
+        }
+
+        .location span {
+            color: red;
+            font-size: 10px;
+            font-weight: 300;
+        }
+
+        .product-description {}
+
+        .btn-submit button {
+            width: 200px;
+            height: 40px;
+            border-radius: 12px;
+            background-color: rgb(151, 217, 151);
+            font-size: 20px;
+        }
+
+        .btn-submit button:hover {
+            background-color: rgba(16, 203, 97, 0.457);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="buy6.php" method="post">
+        <div class="container">
+            <div class="img">
+                <img src="assets/menu6.jpg" alt="Error">
+                <div class="img-content">
+                    <h3>"In Our Chef's Word"</h3>
+                    <p>"Crafted with passion, each creation is a culinary masterpiece. Indulge in flavors that dance on your palate."</p>
+                </div>
+            </div>
+            <div class="content">
+                <div class="top-content-1">
+                    <h1>Stobery Cake</h1>
+                </div>
+                <hr>
+                <div class="content-2">
+                    <h3>₹420.00</h3>
+                </div>
+                <div class="weight">
+                    Select weight
+                    <br>
+                    <ul>
+                        <select name="weight" id="selected_weight">
+                            <option value="0.5kg">0.5 Kg</option>
+                            <option value="1kg">1 Kg</option>
+                            <option value="1.5kg">1.5 Kg</option>
+                            <option value="2kg">2 Kg</option>
+                            <option value="4kg">4 Kg</option>
+                        </select>
+                    </ul>
+                </div>
+                <div class="cake-msg">
+                    Cake Message
+                    <br>
+                    <input type="text" name="cake_message" placeholder="Enter message on cake">
+                </div>
+                <div class="location">
+                    Delivery Location
+                    <br>
+                    <input type="text" name="delivery_location" placeholder="Enter Your city">
+                    <br>
+                    <span>Available in limited cities*</span>
+                </div>
+                <div class="btn-submit">
+                    <button type="submit">Buy</button>
+                </div>
+                <hr>
+                <div class="product-description">
+                    <h4>Product Description</h4>
+                    <p>A light and airy sponge cake layered with fresh strawberries and whipped cream, ideal for a delightful summer dessert.</p>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
